@@ -16,9 +16,22 @@
 
     <button id="getAllEmpss">getAllEmpsData</button>
 
+    <div id="container"></div>
+
     <script>
         document.getElementById("getAllEmpss").addEventListener("click",()=>{
-            fetch("{% url 'getAll_emps' %}").then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err))
+            fetch("{% url 'getAll_emps' %}").then(res=>res.json()).then(res=>{
+                // console.log(res)
+               console.log( res.employees)
+              let  allCards=document.getElementById("container")
+               res.employees.forEach((emp,index)=>{
+                 let p=document.createElement("p")
+                 p.innerHTML=`
+               ${emp.name}
+                 `
+                 allCards.append(p)
+               })
+            }).catch(err=>console.log(err))
         })
     </script>
 </body>
