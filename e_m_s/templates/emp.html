@@ -13,5 +13,13 @@
         <input type="email" name="email" placeholder="enter emp email here " required>
         <button type="submit">addEmp</button>
     </form>
+
+    <button id="getAllEmpss">getAllEmpsData</button>
+
+    <script>
+        document.getElementById("getAllEmpss").addEventListener("click",()=>{
+            fetch("{% url 'getAll_emps' %}").then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err))
+        })
+    </script>
 </body>
 </html>

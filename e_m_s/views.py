@@ -7,6 +7,7 @@ import json
 def getAll_Emps(request):
     if request.method=="GET":
         allEmpsDATA=read_data()
+        # return render(request,"allempData.html")
         return JsonResponse(allEmpsDATA)
 
     
