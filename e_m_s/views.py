@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from rest_framework.decorators import api_view
 import json
+
+@api_view(["GET"])
+def getAll_Emps(request):
+    if request.method=="GET":
+        allEmpsDATA=read_data()
+        return JsonResponse(allEmpsDATA)
+
+    
 # Create your views here.
 file_name="e_m_s/static/emps.json"
 def read_data():
